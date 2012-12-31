@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 var express = require('express')
-  , routes = require('./routes')
+  , routes = require('./app/server/routes')
   , http = require('http')
   , path = require('path');
 
@@ -10,7 +10,7 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-  app.set('views', '../public');
+  app.set('views', 'app/public');
   app.set('view engine', 'html');
   app.engine('html', require('hbs').__express);
   app.use(express.favicon());
@@ -19,7 +19,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   // app.use(express.static(path.join(__dirname, 'public')));
-  app.use(express.static('../public'));
+  app.use(express.static('app/public'));
 });
 
 app.configure('development', function(){
@@ -27,9 +27,7 @@ app.configure('development', function(){
 });
 
 // Route Responses
-app.get('/', function(req,res){
-  res.send(__dirname);
-});//routes.index);
+app.get('/', routes.index);
 
 // Respond to api requests
 http.createServer(app).listen(app.get('port'), function(){
