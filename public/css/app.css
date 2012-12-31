@@ -203,10 +203,10 @@ h1,h2,h3,h4,h5,h6{
 
 	opacity:0;
 
-	animation: splash 1000ms linear 0;
-	-moz-animation: splash 1000ms linear 0; /* Firefox */
-	-webkit-animation: splash 1000ms linear 0; /* Safari and Chrome */
-	-o-animation: splash 1000ms linear 0; /* Opera */
+	animation: splash 1800ms linear 0;
+	-moz-animation: splash 1800ms linear 0; /* Firefox */
+	-webkit-animation: splash 1800ms linear 0; /* Safari and Chrome */
+	-o-animation: splash 1800ms linear 0; /* Opera */
 }
 
 #turn-display{	
