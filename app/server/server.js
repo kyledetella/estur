@@ -27,7 +27,9 @@ app.configure('development', function(){
 });
 
 // Route Responses
-app.get('/', res.send(__dirname));//routes.index);
+app.get('/', function(req,res){
+  res.send(__dirname);
+});//routes.index);
 
 // Respond to api requests
 http.createServer(app).listen(app.get('port'), function(){
