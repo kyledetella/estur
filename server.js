@@ -18,7 +18,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, '/public')));
+  //app.use(express.static(path.join(__dirname, '/public')));
+  app.use(express.static('./public'));
 });
 
 app.configure('development', function(){
@@ -26,9 +27,7 @@ app.configure('development', function(){
 });
 
 // Route Responses
-app.get('/', function(req,res){
-  res.send( path.join(__dirname, '/public') );
-});//routes.index);
+app.get('/', routes.index);
 
 // Respond to api requests
 http.createServer(app).listen(app.get('port'), function(){
