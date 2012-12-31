@@ -10,7 +10,7 @@ var app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
-  app.set('views', 'app/public');
+  app.set('views', './app/public');
   app.set('view engine', 'html');
   app.engine('html', require('hbs').__express);
   app.use(express.favicon());
@@ -19,7 +19,7 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   // app.use(express.static(path.join(__dirname, 'public')));
-  app.use(express.static('app/public'));
+  app.use(express.static('./app/public'));
 });
 
 app.configure('development', function(){
